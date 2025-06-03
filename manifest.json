@@ -28,9 +28,12 @@
         "content/content-script.js"
       ],
       "matches": [
-        "<all_urls>"
+        "https://notebooklm.google.com/*"
       ]
     }
+  ],
+  "host_permissions": [
+    "https://notebooklm.google.com/*"
   ],
   "permissions": [
     "notifications",
