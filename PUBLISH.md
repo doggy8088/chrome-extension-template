@@ -2,17 +2,18 @@
 
 Simply zip whole folder as a zip file and upload to [Chrome Web Store](https://chrome.google.com/webstore/devconsole/1493e0a9-a65c-4e31-aefb-d9f27e0d8026/nkeadnckjdandlphpaniomonofdhlanb/edit/package).
 
-## Package
+## 第一次要手動部署到[開發人員資訊主頁](https://chrome.google.com/webstore/devconsole/)
 
 ```sh
-$filePath = "Extension_v0.16.1.zip"
-7z a $filePath _locales images src CHANGELOG.md manifest.json README.*
+$filePath = "Extension_v0.1.0.zip"
+7z a $filePath _locales content background assets options popup CHANGELOG.md manifest.json README.*
 (Get-ChildItem -Path . -Filter $filePath -Recurse | Select-Object -ExpandProperty FullName) | Set-Clipboard
 ```
 
 ## GitHub Actions
 
 * [Use the Chrome Web Store Publish API](https://developer.chrome.com/docs/webstore/using-api)
+* [如何使用 Chrome Web Store Publish API 自動化發佈 Chrome Extension](https://blog.miniasp.com/post/2025/02/07/How-to-use-the-Chrome-Web-Store-Publish-API-to-automate-the-publishing-of-a-Chrome-Extension?full=1)
 
 ### 申請 Chrome Web Store API 存取權限步驟說明
 
@@ -48,15 +49,7 @@ $filePath = "Extension_v0.16.1.zip"
 
 5. 設定 GitHub Secrets
 
-   ```markdown
-   1. 前往專案的 Settings → Secrets → Actions
-   2. 新增以下 Secret：
-      - GH_TOKEN (GitHub Personal Access Token)
-      - EXTENSION_ID (從 Chrome Web Store 開發者面板取得)
-      - CLIENT_ID
-      - CLIENT_SECRET
-      - REFRESH_TOKEN
-   ```
+   參考文章說明: [如何使用 Chrome Web Store Publish API 自動化發佈 Chrome Extension](https://blog.miniasp.com/post/2025/02/07/How-to-use-the-Chrome-Web-Store-Publish-API-to-automate-the-publishing-of-a-Chrome-Extension?full=1)
 
 注意事項：
 
